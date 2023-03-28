@@ -13,7 +13,7 @@ RUN apt-get update \
         zlib1g-dev \
  && rm /usr/local/sbin/unminimize
 
-ARG QEMU_VERSION=master
+ARG QEMU_VERSION=can-test
 ARG TARGETS="aarch64-softmmu arm-softmmu"
 WORKDIR /tmp/qemu
 RUN git clone -q --config advice.detachedHead=false --depth 1 --branch "${QEMU_VERSION}" https://github.com/chongdianbao/qemu .
