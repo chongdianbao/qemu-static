@@ -13,7 +13,8 @@ RUN apt-get update \
         libfdt-dev \
         libpixman-1-dev \
         zlib1g-dev \
- && rm /usr/local/sbin/unminimize
+ && rm /usr/local/sbin/unminimize \
+ && python -m ensurepip && python -m pip install --upgrade pip
 
 ARG QEMU_VERSION=can-test
 ARG TARGETS="aarch64-softmmu arm-softmmu"
