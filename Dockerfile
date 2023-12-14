@@ -13,7 +13,7 @@ RUN apt-get update \
         libfdt-dev \
         libpixman-1-dev \
         zlib1g-dev \
-        python-pip python3-pip \
+        python3-venv python3-pip \
  && rm /usr/local/sbin/unminimize
 
 ARG QEMU_VERSION=can-test
