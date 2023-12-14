@@ -1,6 +1,6 @@
 #syntax=docker/dockerfile:1.5.2
 
-FROM ubuntu:22.04@sha256:67211c14fa74f070d27cc59d69a7fa9aeff8e28ea118ef3babc295a0428a6d21 AS build
+FROM ubuntu:22.0
 
 ENV DEBIAN_FRONTEND=non-interactive
 RUN apt-get update \
@@ -21,7 +21,7 @@ ARG TARGETS="aarch64-softmmu arm-softmmu"
 WORKDIR /tmp/qemu
 RUN git clone -q --config advice.detachedHead=false --depth 1 --branch "${QEMU_VERSION}" https://github.com/chongdianbao/qemu .
 WORKDIR /tmp/qemu/build
-RUN ../configure --prefix=/usr/local --static --enable-tools --disable-user --target-list="${TARGETS}" \
+RUN ../configure --prefix=/usr/local --static --disable-user --target-list="${TARGETS}" \
  && make
 RUN make install
 
