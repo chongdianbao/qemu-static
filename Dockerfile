@@ -1,6 +1,6 @@
 #syntax=docker/dockerfile:1.5.2
 
-FROM ubuntu:22.0  AS build
+FROM ubuntu:22.04 AS build
 
 ENV DEBIAN_FRONTEND=non-interactive
 RUN apt-get update \
