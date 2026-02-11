@@ -14,7 +14,7 @@ RUN apt-get update \
         libpixman-1-dev \
         zlib1g-dev \
         python3-venv python3-pip python3-tomli \
-        libmount-dev libmount1-static \
+        libmount-dev \
  && rm /usr/local/sbin/unminimize
 
 ARG QEMU_VERSION=master
