@@ -39,7 +39,7 @@ jobs:
           tar -cvzf qemu-${{ matrix.arch }}.tar.gz usr/local
 
       - name: Store tarball
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: qemu-${{ matrix.arch }}.tar.gz
           path: qemu-${{ matrix.arch }}.tar.gz
