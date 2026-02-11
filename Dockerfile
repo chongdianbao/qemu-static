@@ -15,14 +15,15 @@ RUN apt-get update \
         zlib1g-dev \
         python3-venv python3-pip python3-tomli \
         libmount-dev \
+        libgcrypt20-dev zlib1g-dev autoconf automake libtool bison flex \
  && rm /usr/local/sbin/unminimize
 
 ARG QEMU_VERSION=master
-ARG TARGETS="aarch64-softmmu arm-softmmu"
+ARG TARGETS="aarch64-softmmu"
 WORKDIR /tmp/qemu
 RUN git clone -q --config advice.detachedHead=false --depth 1 --branch "${QEMU_VERSION}" https://github.com/chongdianbao/qemu .
 WORKDIR /tmp/qemu/build
-RUN ../configure --prefix=/usr/local --static --disable-user --target-list="${TARGETS}" \
+RUN ../configure --prefix=/usr/local --static --disable-user --disable-kvm --disable-xen --target-list="aarch64-softmmu" \
  && make
 RUN make install
 
